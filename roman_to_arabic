@@ -1,0 +1,13 @@
+def solution(roman):
+    arr = []
+    roman_dict = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    for i in roman:
+        arr.append(roman_dict[i])
+    num = 0
+    for n,i in enumerate(arr[:-1]):
+        if arr[n]>=arr[n+1]:
+            num+= arr[n]
+        else:
+            num-=arr[n]
+    num+= arr[-1]
+    return(num)
